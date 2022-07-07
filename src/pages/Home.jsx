@@ -15,7 +15,7 @@ const Home = () => {
 
   const fetchData = async () => {
     await CRUDRequest.get(
-      `search?api_key=FzKk0yVso7D0EqYys6BAlYAWjmATcGVI&q=${search || "tom and jeary"}&limit=10&offset=0`
+      `search?api_key=FzKk0yVso7D0EqYys6BAlYAWjmATcGVI&q=${search || "tom and jeary"}&limit=50&offset=0`
     )
       .then((res) => {
         setGifs(res.data.data);
@@ -36,6 +36,7 @@ const Home = () => {
 
     setTimeout(() => {
       if (counter === 0) {
+        
       } else {
         setCounter(counter - 1);
       }
@@ -44,6 +45,7 @@ const Home = () => {
   useEffect(() => {
     fetchData();
   }, [search]);
+
 
   return (
     <section className="gallery">
